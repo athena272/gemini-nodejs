@@ -20,14 +20,11 @@ export async function runChat(message) {
         },
     ],
     generationConfig: {
-      maxOutputTokens: 100,
+      maxOutputTokens: 1000,
     },
   });
 
-  const msg = message;
-
-  const result = await chat.sendMessage(msg);
+  const result = await chat.sendMessage(message);
   const response = await result.response;
-  const text = response.text();
-  console.log(text);
+  return response.text();
 }
