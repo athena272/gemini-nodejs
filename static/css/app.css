@@ -151,6 +151,10 @@ a {
     padding-left: 20px;
 }
 
+.entrada__input:focus-visible {
+    outline: 0;
+}
+
 .entrada__input::placeholder {
     color: #8C8C8C;
 }
