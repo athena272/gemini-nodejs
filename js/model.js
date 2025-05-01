@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export async function initializeModel(modelParam = 'gemini-1.5-flash') {
