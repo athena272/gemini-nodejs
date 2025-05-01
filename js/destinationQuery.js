@@ -1,9 +1,10 @@
 import { makeQuestion } from './question.js';
 import { initializeModel } from './model.js';
 
-const model = initializeModel()
 
 export async function destinationQuery() {
+    const model = await initializeModel()
+
     const categorias = await makeQuestion("Me fale as categorias que deseja visualizar sobre um determinado destino: ");
     const prompt = await makeQuestion("Me fale sobre o destino que deseja conhecer: ");
 
