@@ -1,9 +1,8 @@
 import { makeQuestion } from './question.js';
 import { initializeModel } from './model.js';
 
-const model = initializeModel('gemini-exp-1206')
-
 export async function freeQuestion() {
+    const model = await initializeModel('gemini-exp-1206');
     const prompt = await makeQuestion("Me faça uma pergunta sobre um determinado destino: ");
 
     const parts = [
