@@ -6,15 +6,23 @@ export async function freeQuestion() {
     const prompt = await makeQuestion("Me faça uma pergunta sobre um determinado destino: ");
 
     const parts = [
-        {text: "Você é o chatbot de um site que vende pacotes de viagem." },
-        {text: `input: ${prompt}`},
-        {text: "output: "},
-      ];
+        { text: "Você é o chatbot de um site que vende pacotes de viagem." },
+        { text: `input: ${prompt}` },
+        { text: "output: " },
+    ];
 
-    const result = await model.generateContent(
-        { contents: [{ role: "user", parts }] }
-    );
+    const request = ({
+        contents: [{ role: "user", parts }]
+    })
+    const result = await model.generateContent(request);
+
+    // For text-only input
+    const totalTokensInput  = await model.countTokens(request);
+    console.log("\n🚀 ~ freeQuestion ~ totalTokensInput:\n", totalTokensInput)
     const response = await result.response;
     const text = response.text();
     console.log(text);
+
+    const totalTokensOutput = await model.countTokens(text)
+    console.log("\n🚀 ~ freeQuestion ~ totalTokensOutput:\n", totalTokensOutput)
 }
