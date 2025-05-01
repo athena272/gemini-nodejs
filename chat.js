@@ -1,4 +1,5 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import 'dotenv/config';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -11,11 +12,11 @@ async function run() {
     history: [
       {
         role: "user",
-        parts: [{ text: "Hello, I have 2 dogs in my house." }],
+        parts: [{ text: "Oi, adoro viajar!" }],
       },
       {
         role: "model",
-        parts: [{ text: "Great to meet you. What would you like to know?" }],
+        parts: [{ text: "Ah, que legal. Para onde deseja viajar?" }],
       },
     ],
     generationConfig: {
@@ -23,7 +24,7 @@ async function run() {
     },
   });
 
-  const msg = "How many paws are in my house?";
+  const msg = "Quero ir para o Canadá";
 
   const result = await chat.sendMessage(msg);
   const response = await result.response;
