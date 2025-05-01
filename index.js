@@ -1,14 +1,11 @@
 import 'dotenv/config';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { makeQuestion } from './question.js';
+import { makeQuestion } from './js/question.js';
+import { initializeModel } from './js/model.js';
 
-// Access your API key as an environment variable (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = initializeModel()
 
 async function run() {
-    // The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
     const categorias = await makeQuestion("Me fale as categorias que deseja visualizar sobre um determinado destino: ");
     const prompt = await makeQuestion("Me fale sobre o destino que deseja conhecer: ");
 
@@ -19,6 +16,7 @@ async function run() {
         { text: `input: me fale sobre ${categorias} o destino ${prompt}` },
         { text: "output: " },
     ];
+
     const result = await model.generateContent(
         { contents: [{ role: "user", parts }] }
     );
