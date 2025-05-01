@@ -1,5 +1,3 @@
-import 'dotenv/config';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { makeQuestion } from './question.js';
 import { initializeModel } from './model.js';
 
