@@ -10,7 +10,7 @@ function fileToGenerativePart(path, mimeType) {
     };
 }
 
-export async function processesImages(image) {
+export async function processesImage(image) {
     const model = await initializeModel('gemini-1.5-flash')
 
     const prompt = "Me fale tudo que puder sobre o destino mostrado nessa imagem";
