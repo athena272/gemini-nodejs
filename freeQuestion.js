@@ -10,7 +10,7 @@ export async function freeQuestion() {
 
     const parts = [
         {text: "Você é o chatbot de um site que vende pacotes de viagem." },
-        {text: `input: me fale o máximo que você puder sobre o destino ${prompt}`},
+        {text: `input: ${prompt}`},
         {text: "output: "},
       ];
 
