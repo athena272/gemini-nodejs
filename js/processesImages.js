@@ -23,4 +23,4 @@ export async function processesImage(image) {
     const response = await result.response;
     const text = response.text();
     console.log(text);
-} 
+}
