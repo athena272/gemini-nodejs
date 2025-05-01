@@ -1,12 +1,10 @@
-import 'dotenv/config';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { makeQuestion } from './question.js';
 import { initializeModel } from './model.js';
 
 const model = initializeModel('gemini-exp-1206')
 
 export async function freeQuestion() {
-    const prompt = await fazerPergunta("Me faça uma pergunta sobre um determinado destino: ");
+    const prompt = await makeQuestion("Me faça uma pergunta sobre um determinado destino: ");
 
     const parts = [
         {text: "Você é o chatbot de um site que vende pacotes de viagem." },
