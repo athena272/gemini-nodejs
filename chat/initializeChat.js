@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/generative-ai";
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -21,6 +21,17 @@ const functions = {
         }
     }
 };
+
+const tools = [
+    {
+        functionDeclarations: [
+            {
+                name: "installmentInterestRate",
+                description: "Retorna a taxa de juros para parcelamento baseado na quantidade de meses",
+            }
+        ]
+    }
+]
 
 function initializeChat() {
     chat = model.startChat({
