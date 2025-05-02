@@ -1,14 +1,13 @@
-## 🔨 Objetivos do projeto
+# FURIA Bot - Chatbot Oficial da FURIA Esports
 
+Um chatbot inteligente desenvolvido para fãs da FURIA Esports, especializado em Counter-Strike. O bot utiliza a API do Google Gemini para fornecer informações precisas e atualizadas sobre o time, jogadores, torneios e muito mais.
+
+## 🔨 Objetivos do projeto
 
 - Desenvolver um Chatbot com JavaScript e Node.js integrado com o Google Gemini;
 - Gerenciar o histórico de troca de mensagens;
 - Criar funções dinâmicas com o recurso de Function Calling da API;
 - Incorporar documentos personalizados para auxiliar nas resposta, com o recurso de embeddings;
-
-# FURIA Bot - Chatbot Oficial da FURIA Esports
-
-Um chatbot inteligente desenvolvido para fãs da FURIA Esports, especializado em Counter-Strike. O bot utiliza a API do Google Gemini para fornecer informações precisas e atualizadas sobre o time, jogadores, torneios e muito mais.
 
 ## Funcionalidades
 
