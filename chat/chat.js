@@ -1,7 +1,7 @@
 import { chat, functions, initializeChat } from './initializeChat.js'
 import { incorporarDocumentos, incorporarPergunta, leArquivos } from '../embedding.js';
 
-const arquivos = await leArquivos(["Pacotes_Argentina.txt", "Pacotes_EUA.txt", "Politicas.txt"])
+const arquivos = await leArquivos(["Furia_Historia.txt", "Furia_Jogadores.txt", "Furia_Torneios.txt"])
 const documentos = await incorporarDocumentos(arquivos);
 
 export async function runChat(message) {
@@ -11,7 +11,7 @@ export async function runChat(message) {
 
   console.log("🚀 ~ runChat ~ (await chat.getHistory()).length:", (await chat.getHistory()).length)
   let doc = await incorporarPergunta(message, documentos);
-  let prompt = message + " talvez esse trecho te ajude a formular a resposta " + doc.text;
+  let prompt = `Como assistente virtual da FURIA, use as seguintes informações para responder à pergunta do fã: "${message}"\n\nInformações relevantes: ${doc.text}\n\nLembre-se de ser amigável e entusiasmado, sempre mantendo o espírito da FURIA!`;
 
   const result = await chat.sendMessage(prompt);
   const response = await result.response;
