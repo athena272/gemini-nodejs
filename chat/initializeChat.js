@@ -1,8 +1,39 @@
 import 'dotenv/config';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/generative-ai";
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+const functions = {
+    installmentInterestRate: ({ value }) => {
+        const months = typeof value === "string" ? parseInt(value) : value;
+        if (months <= 6) {
+            return 3;
+        } else if (months <= 12) {
+            return 5;
+        } else if (months <= 24) {
+            return 7;
+        }
+    }
+};
+
+const tools = [
+    {
+        functionDeclarations: [
+            {
+                name: "installmentInterestRate",
+                description: "Retorna a taxa de juros para parcelamento baseado na quantidade de meses",
+                parameters: {
+                    type: FunctionDeclarationSchemaType.OBJECT,
+                    properties: {
+                        value: { type: FunctionDeclarationSchemaType.NUMBER },
+                    },
+                    required: ["value"],
+                }
+            }
+        ]
+    }
+]
 
 // The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -27,4 +58,4 @@ function initializeChat() {
     });
 }
 
-export { chat, initializeChat }
+export { chat, initializeChat, functions }
