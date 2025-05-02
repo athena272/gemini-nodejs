@@ -1,6 +1,10 @@
-import { chat } from './initializeChat.js'
+import { chat, functions, initializeChat } from './initializeChat.js'
 
 export async function runChat(message) {
+  if (!chat) {
+    initializeChat();
+  }
+
   console.log("🚀 ~ runChat ~ (await chat.getHistory()).length:", (await chat.getHistory()).length)
   const result = await chat.sendMessage(message);
   const response = await result.response;
@@ -14,7 +18,7 @@ export async function runChat(message) {
    
   if (fc) {
     const { name, args } = fc;
-    const fn = funcoes[name];
+    const fn = functions[name];
     if (!fn) {
       throw new Error(`Unknown function "${name}"`);
     }
@@ -23,7 +27,7 @@ export async function runChat(message) {
           name,
           response: {
           name,
-           content: funcoes[name](args),
+           content: functions[name](args),
           }
       },
     }
