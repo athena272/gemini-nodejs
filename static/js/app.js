@@ -22,7 +22,7 @@ async function enviarMensagem() {
     input.value = '';
 
     try {
-        const response = await fetch('localhost:3000', {
+        const response = await fetch('http://localhost:3000', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
