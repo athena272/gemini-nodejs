@@ -1,5 +1,5 @@
-# FURIA Bot - Chatbot Oficial da FURIA Esports
-
+# FURIA Bot - Chatbot da FURIA Esports para fãs
+ 
 Um chatbot inteligente desenvolvido para fãs da FURIA Esports, especializado em Counter-Strike. O bot utiliza a API do Google Gemini para fornecer informações precisas e atualizadas sobre o time, jogadores, torneios e muito mais.
 
 ## 🔨 Objetivos do projeto
