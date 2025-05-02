@@ -14,7 +14,6 @@ Chatbot do Jornada Viagens, um app de simulação de um site de venda de pacotes
 - Gerenciar o histórico de troca de mensagens;
 - Criar funções dinâmicas com o recurso de Function Calling da API;
 - Incorporar documentos personalizados para auxiliar nas resposta, com o recurso de embeddings;
-- Explorar os recursos de processamento e análise de vídeo, áudio, arquivos e imagens.
 
 # FURIA Bot - Chatbot Oficial da FURIA Esports
 
