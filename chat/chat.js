@@ -1,5 +1,5 @@
 import { chat, functions, initializeChat } from './initializeChat.js'
-import { incorporarDocumentos } from '../embedding.js';
+import { incorporarDocumentos, incorporarPergunta } from '../embedding.js';
 
 const documentos = await incorporarDocumentos(
   [
@@ -7,7 +7,6 @@ const documentos = await incorporarDocumentos(
     "Viagem para a Disney, 6 dias, R$ 20.000,00 - Viagem para a Disney, 10 dias, R$ 25.000,00"
   ]
 );
-console.log("🚀 ~ documentos:", documentos)
 
 export async function runChat(message) {
   if (!chat) {
@@ -15,7 +14,10 @@ export async function runChat(message) {
   }
 
   console.log("🚀 ~ runChat ~ (await chat.getHistory()).length:", (await chat.getHistory()).length)
-  const result = await chat.sendMessage(message);
+  let doc = await incorporarPergunta(message, documentos);
+  let prompt = message + " talvez esse trecho te ajude a formular a resposta " + doc.text;
+
+  const result = await chat.sendMessage(prompt);
   const response = await result.response;
 
   const content = response.candidates[0].content;
