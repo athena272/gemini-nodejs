@@ -1,4 +1,13 @@
 import { chat, functions, initializeChat } from './initializeChat.js'
+import { incorporarDocumentos } from '../embedding.js';
+
+const documentos = await incorporarDocumentos(
+  [
+    "A política de cancelamento é de 30 dias antes da viagem, caso contrário, não faremos o reembolso",
+    "Viagem para a Disney, 6 dias, R$ 20.000,00 - Viagem para a Disney, 10 dias, R$ 25.000,00"
+  ]
+);
+console.log("🚀 ~ documentos:", documentos)
 
 export async function runChat(message) {
   if (!chat) {
@@ -10,12 +19,12 @@ export async function runChat(message) {
   const response = await result.response;
 
   const content = response.candidates[0].content;
- 
+
   const fc = content.parts[0].functionCall;
   const text = content.parts.map(({ text }) => text).join("");
   console.log(text);
   console.log(fc);
-   
+
   if (fc) {
     const { name, args } = fc;
     const fn = functions[name];
@@ -24,16 +33,16 @@ export async function runChat(message) {
     }
     const fr = {
       functionResponse: {
+        name,
+        response: {
           name,
-          response: {
-          name,
-           content: functions[name](args),
-          }
+          content: functions[name](args),
+        }
       },
     }
-  
+
     console.log(fr)
-  
+
     const request2 = [fr];
     const response2 = await chat.sendMessage(request2);
     const result2 = response2.response;
