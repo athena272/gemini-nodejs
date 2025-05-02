@@ -45,7 +45,7 @@ h1 {
 }
 
 header p {
-    color: #888;
+    color: #aaa;
     font-size: 1.1rem;
 }
 
@@ -126,7 +126,7 @@ header p {
 footer {
     text-align: center;
     margin-top: 2rem;
-    color: #888;
+    color: #aaa;
     font-size: 0.9rem;
 }
 
