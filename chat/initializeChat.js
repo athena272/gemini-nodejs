@@ -5,7 +5,7 @@ import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/gener
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools });
 
 let chat
 
@@ -28,6 +28,13 @@ const tools = [
             {
                 name: "installmentInterestRate",
                 description: "Retorna a taxa de juros para parcelamento baseado na quantidade de meses",
+                parameters: {
+                    type: FunctionDeclarationSchemaType.OBJECT,
+                    properties: {
+                        value: { type: FunctionDeclarationSchemaType.NUMBER },
+                    },
+                    required: ["value"],
+                }
             }
         ]
     }
