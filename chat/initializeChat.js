@@ -36,7 +36,7 @@ const tools = [
 ]
 
 // The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools }, { apiVersion: "v1beta" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools });
 
 let chat
 
@@ -58,4 +58,4 @@ function initializeChat() {
     });
 }
 
-export { chat, initializeChat }
+export { chat, initializeChat, functions }
