@@ -4,11 +4,6 @@ import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/gener
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools });
-
-let chat
-
 const functions = {
     installmentInterestRate: ({ value }) => {
         const months = typeof value === "string" ? parseInt(value) : value;
@@ -39,6 +34,11 @@ const tools = [
         ]
     }
 ]
+
+// The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", tools });
+
+let chat
 
 function initializeChat() {
     chat = model.startChat({
