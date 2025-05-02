@@ -89,4 +89,4 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para d
 
 ## Contato
 
-Para mais informações sobre o projeto, entre em contato através do email: contato@furia.gg
+Para mais informações sobre o projeto, entre em contato através do email: guilhermera272@gmail.com
