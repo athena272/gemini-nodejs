@@ -162,3 +162,9 @@ footer {
         font-size: 2rem;
     }
 } 
+
+@media (max-width: 576px) {
+    .chat-input-container {
+        flex-direction: column;
+    }
+} 
