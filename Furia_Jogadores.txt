@@ -1,28 +1,29 @@
-Elenco atual da FURIA em Counter-Strike:
+Elenco principal da FURIA (Counter‑Strike 2) — atualizado em 4 de maio de 2025
 
 KSCERATO (Kaike Cerato)
-- Função: Rifler
-- Estilo: Jogador versátil, conhecido por sua precisão e consistência
-- Considerado um dos melhores jogadores do mundo
+- Função: Rifler (lurker)
+- Estilo: Consistente em clutches e duelos de meio/fim de round
+- Top 20 HLTV quatro anos consecutivos
 
 yuurih (Yuri Santos)
-- Função: Rifler
-- Estilo: Jogador agressivo, especialista em entry fragging
-- Conhecido por suas jogadas explosivas e decisivas
+- Função: Rifler (entry/second entry)
+- Estilo: Extrema agressividade em primeiras eliminações
+- Jogadas explosivas que abrem espaço para o time
 
 arT (Andrei Piovezan)
-- Função: IGL (In-Game Leader)
-- Estilo: Líder agressivo, conhecido por seu estilo único de liderança
-- Responsável pela estratégia e estilo de jogo da equipe
+- Função: IGL / Rifler
+- Estilo: Líder de chamadas ousadas; utiliza armas não‑convencionais
+- Principal responsável pela identidade “FURIA Style”
 
-drop (André Abreu)
-- Função: AWPer
-- Estilo: Jogador técnico, especialista em AWP
-- Conhecido por sua precisão e posicionamento
-
-chelo (Rafael Costa)
+skullz (Felipe Medeiros)
 - Função: Rifler
-- Estilo: Jogador versátil, conhecido por sua adaptabilidade
-- Importante peça tática da equipe
+- Estilo: Jogador versátil, excelente no trade; reforço de 2024
+- Agrega estabilidade no mid‑round
 
-Cada jogador tem um papel específico na equipe, contribuindo para o sucesso do time com suas habilidades únicas e trabalho em equipe. 
+saffee (Matheus Galvão)
+- Função: AWPer
+- Estilo: AWP defensivo e clutch; promoveu retorno em 2025
+- Precisão em ângulos longos e pós‑plant
+
+Coach: Nicholas “guerri” Nogueira
+- Responsável pelo desenvolvimento tático e análise de demos
