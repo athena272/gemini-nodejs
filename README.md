@@ -1,91 +1,108 @@
-# FURIA Bot - Chatbot da FURIA Esports para fãs
- 
-Um chatbot inteligente desenvolvido para fãs da FURIA Esports, especializado em Counter-Strike. O bot utiliza a API do Google Gemini para fornecer informações precisas e atualizadas sobre o time, jogadores, torneios e muito mais.
+# Gemini Chatbot — FURIA Esports 💬🔥
 
-## 🔨 Objetivos do projeto
+Este projeto é um chatbot interativo construído com Node.js e a API do Google Gemini para responder perguntas sobre a equipe FURIA Esports. A aplicação usa embeddings locais e contexto semântico para gerar respostas precisas com base em arquivos fornecidos.
 
-- Desenvolver um Chatbot com JavaScript e Node.js integrado com o Google Gemini;
-- Gerenciar o histórico de troca de mensagens;
-- Criar funções dinâmicas com o recurso de Function Calling da API;
-- Incorporar documentos personalizados para auxiliar nas resposta, com o recurso de embeddings;
+🔗 **Acesse a versão em produção**:  
+👉 https://gemini-nodejs-sdoz.onrender.com
 
-## Funcionalidades
+---
 
-- Informações sobre o time e jogadores
-- Próximos jogos e torneios
-- Histórico de conquistas
-- Estatísticas e rankings
-- Sistema de embeddings para respostas personalizadas
-- Interface moderna e responsiva
+## ✨ Funcionalidades
 
-## Tecnologias Utilizadas
+- 🤖 Chat com IA (Google Gemini) para responder dúvidas sobre:
+  - História da FURIA
+  - Jogadores
+  - Participações em torneios
+- 📂 Carregamento e leitura de documentos `.txt`
+- 🔎 Busca por similaridade semântica com embeddings
+- 🌐 Interface web estilizada e responsiva
 
-- Node.js
-- Express.js
-- Google Gemini API
-- HTML5
-- CSS3
-- JavaScript
+---
 
-## Requisitos
+## 🧰 Tecnologias utilizadas
 
-- Node.js 18 ou superior
-- NPM ou PNPM
-- Chave de API do Google Gemini
+| Tecnologia    | Descrição                                 |
+|---------------|---------------------------------------------|
+| Node.js       | Backend da aplicação                       |
+| Express       | Servidor HTTP                              |
+| Google Gemini | API de geração de respostas com IA         |
+| Embeddings    | Comparação semântica entre perguntas e contexto |
+| HTML/CSS      | Interface de usuário                       |
+| JavaScript    | Lógica de frontend                         |
+| Render        | Hospedagem gratuita da aplicação           |
 
-## Instalação
+---
 
-1. Clone o repositório:
+## 🚀 Como rodar localmente
+
+### 1. Clone o repositório
+
 ```bash
-git clone https://github.com/seu-usuario/furia-bot.git
-cd furia-bot
+git clone https://github.com/seu-usuario/gemini-nodejs.git
+cd gemini-nodejs
 ```
-
-2. Instale as dependências:
-```bash
+### 2. Instale as dependênc
+```
 npm install
-# ou
-pnpm install
 ```
-
-3. Crie um arquivo `.env` na raiz do projeto e adicione sua chave de API:
-```
-GEMINI_API_KEY=sua_chave_api_aqui
-```
-
-4. Inicie o servidor:
+### 3. Configure as variáveis de ambiente
 ```bash
-npm start
-# ou
-pnpm start
+cp .env.example .env
+```
+### Edite o .env com sua chave da API do Gemini:
+```bash
+GEMINI_API_KEY=coloque-sua-chave-aqui
+```
+🔐 Importante: Nunca compartilhe a chave real no repositório. Use .env localmente e .env.example no GitHub.
+### 4. Rode o servidor
+```bash
+node app.js
+```
+### 5. Acesso no navegador
+```bash
+http://localhost:3000
 ```
 
-## Estrutura do Projeto
-
+## 🗂️ Estrutura do Projeto
 ```
-furia-bot/
-├── chat/
+gemini-nodejs/
+├── app.js                     # Servidor principal
+├── embedding.js               # Embedding e busca semântica
+├── chat/                      # Scripts de inicialização do chatbot
 │   ├── chat.js
 │   └── initializeChat.js
-├── static/
-│   ├── style.css
-│   └── furia-logo.svg
-├── Furia_Historia.txt
+├── static/                    # Estilos, ícones e imagens
+│   ├── css/
+│   └── img/
+├── index.html                 # Página principal
+├── Furia_Historia.txt         # Conteúdo da base de conhecimento
 ├── Furia_Jogadores.txt
 ├── Furia_Torneios.txt
-├── app.js
-├── embedding.js
-└── index.html
+├── .env.example               # Exemplo de configuração
+├── package.json
+├── README.md
 ```
 
-## Contribuição
+## ☁️ Deploy
+Este projeto está publicado gratuitamente com [Render.](https://render.com/)
+Acesse aqui:
+➡️ https://gemini-nodejs-sdoz.onrender.com
 
-Contribuições são bem-vindas! Por favor, leia o arquivo CONTRIBUTING.md para detalhes sobre nosso código de conduta e o processo para enviar pull requests.
+Para fazer seu próprio deploy no Render:
+- Crie uma conta em https://render.com
+- Conecte seu repositório GitHub
+- Crie um novo Web Service:
+- Build Command: npm install
+- Start Command: node app.js
+- Node Version: 20+
+- Adicione a variável de ambiente GEMINI_API_KEY nas Settings do projeto
 
-## Licença
+## 👨‍💻 Autor
+Desenvolvido por Guilherme como parte de um desafio técnico de integração de IA com coleta de dados no universo de eSports.
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
+## 🧠 Observações
+- Os arquivos Furia_*.txt são carregados na inicialização e usados para embasamento das respostas.
 
-## Contato
+- As perguntas feitas no chat são comparadas semanticamente com frases dos arquivos.
 
-Para mais informações sobre o projeto, entre em contato através do email: guilhermera272@gmail.com
+- A IA responde com base nos trechos mais relevantes (top 3 similares).
